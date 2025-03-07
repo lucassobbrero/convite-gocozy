@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  position: relative; /* Necessário para posicionar o overlay */
+  background-image: url('./fab.jpeg'); /* Caminho para a imagem de fundo */
+  background-size: cover; /* Faz a imagem cobrir todo o espaço disponível */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Não repete a imagem */
   min-height: 100vh;
+  background-color: #f6e1d3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #4b3d2b; /* Texto em um marrom mais escuro */
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); /* Sombra no texto para contraste */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+/* Adicionando o overlay */
+.App-header::after {
+  content: ''; /* Necessário para criar um pseudo-elemento */
+  position: absolute; /* Posiciona o overlay */
+  top: 0; /* Faz o overlay cobrir toda a área */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5); /* Fundo branco com 50% de opacidade */
+  z-index: 1; /* Certifique-se de que o overlay fique abaixo do texto */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Para que o texto e a imagem do logo fiquem acima do overlay */
+.App-title, .App-description, .App-link {
+  position: relative; /* Para garantir que o texto fique acima do overlay */
+  z-index: 2; /* Eleva o texto acima do overlay */
+}
+
+.App-description {
+  text-align: center;
+  font-size: 24px; /* Aumenta o tamanho da fonte */
+  font-weight: normal; /* Altera o peso da fonte para normal */
+  color: #7f4d2a; /* Escolha um tom marrom mais claro para a descrição */
+  margin: 20px auto; /* Espaçamento acima e abaixo, e centrado automaticamente */
+  padding: 0 20px; /* Adiciona padding lateral para evitar que o texto fique muito próximo das bordas */
+  line-height: 1.5; /* Aumenta o espaçamento entre linhas para melhor legibilidade */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); /* Sombra suave para melhorar a legibilidade */
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  background-color: rgba(255, 255, 255, 0.7); /* Fundo branco semi-transparente */
+  max-width: 1000px; /* Define uma largura máxima para a descrição */
+}
+
+/* Estilos para a imagem do logo */
+.App-logo {
+  margin-top: 100px;
+  height: 75vmin;
+  width: 75vmin;
+  pointer-events: none;
+  transition: transform 0.5s; /* Transição suave */
+  z-index: 2; /* Certifique-se de que a imagem do logo fique acima do overlay */
+}
+
+.App-logo:hover {
+  transform: scale(1.05); /* Efeito de hover */
+}
+
+.App-go {
+  z-index: 2; /* Efeito de hover */
 }
