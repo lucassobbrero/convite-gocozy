@@ -1,6 +1,4 @@
 import gocozy from "./gocozy.jpeg";
-import images from "./images.jpeg";
-import goo from "./goo.jpeg";
 import oi from "./oi.png";
 import "./App.css";
 
